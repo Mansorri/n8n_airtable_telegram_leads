@@ -1,0 +1,278 @@
+{
+  "name": "test_2",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "441a9c28-57b7-4f34-bad8-56a15132654f",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "858f7d4b-cb63-42f2-a7ec-7845fe67571f",
+      "name": "Webhook",
+      "webhookId": "8964633b-8bf1-43f5-945f-6e71b89effd0"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appNNOUOAtR4P6BWy",
+          "mode": "list",
+          "cachedResultName": "Untitled Base",
+          "cachedResultUrl": "https://airtable.com/appNNOUOAtR4P6BWy"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblB8W9wb56UhWlk1",
+          "mode": "list",
+          "cachedResultName": "CRM Leads",
+          "cachedResultUrl": "https://airtable.com/appNNOUOAtR4P6BWy/tblB8W9wb56UhWlk1"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Follow-Up Needed?": false,
+            "Full Name": "={{ $json.body.data.name }}",
+            "Email": "={{ $json.body.data.email }}",
+            "Company": "={{ $json.body.data.company }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Full Name",
+              "displayName": "Full Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Company",
+              "displayName": "Company",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "New",
+                  "value": "New"
+                },
+                {
+                  "name": "Contacted",
+                  "value": "Contacted"
+                },
+                {
+                  "name": "Qualified",
+                  "value": "Qualified"
+                },
+                {
+                  "name": "Lost",
+                  "value": "Lost"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Submitted At",
+              "displayName": "Submitted At",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Source",
+              "displayName": "Source",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Phone Number",
+              "displayName": "Phone Number",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Lead Owner",
+              "displayName": "Lead Owner",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Follow-Up Needed?",
+              "displayName": "Follow-Up Needed?",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Last Contacted",
+              "displayName": "Last Contacted",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "33064e26-8f5f-49a1-94c6-48628239d533",
+      "name": "Create a record",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "6uX5lgFPkIWEhNQm",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "1307220473",
+        "text": "=🆕 Нова заявка\n\n👤 Ім'я: {{ $json.fields['Full Name'] }}\n📧 Email: {{ $json.fields.Email }}\n🏢 Компанія: {{ $json.fields.Company }}\n🕐 Дата: {{ $now.format('dd.MM.yyyy HH:mm') }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        416,
+        0
+      ],
+      "id": "f53af113-2f8b-4046-88a3-f62bfb3ae114",
+      "name": "Send a text message",
+      "webhookId": "c3e61fc5-9a5d-4ecc-a9b5-51695d82eb64",
+      "credentials": {
+        "telegramApi": {
+          "id": "1sv1hm1UkqqMr9rh",
+          "name": "tgA"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Create a record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a record": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "ed30e3fd-ba8f-49f8-8805-d3d3627df062",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "87fa0bccc050226dd3f10491216037b6f1d8a4f8df613f371919d44fc085537a"
+  },
+  "nodeGroups": [],
+  "id": "IgAlV3mMA23PjoXt",
+  "tags": [
+    {
+      "updatedAt": "2026-09-08T10:57:20.678Z",
+      "createdAt": "2026-09-08T10:57:20.678Z",
+      "id": "zAK1501j6EwAZMad",
+      "name": "tests"
+    }
+  ]
+}
