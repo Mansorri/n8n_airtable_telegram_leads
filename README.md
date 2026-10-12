@@ -2,10 +2,12 @@
 
 ### An end-to-end lead management automation built with n8n, Airtable, Telegram Bot API, and ngrok.
 
-![n8n](https://img.shields.io/badge/n8n-Workflow_Automation-EA4B71?style=for-the-badge)
-![Airtable](https://img.shields.io/badge/Airtable-CRM-18BFFF?style=for-the-badge)
-![Telegram](https://img.shields.io/badge/Telegram-Bot_API-26A5E4?style=for-the-badge)
-![ngrok](https://img.shields.io/badge/ngrok-Webhooks-1F1E37?style=for-the-badge)
+
+[![n8n](https://img.shields.io/badge/n8n-Workflow_Automation-EA4B71?style=for-the-badge)](https://n8n.io)
+[![Airtable](https://img.shields.io/badge/Airtable-CRM-18BFFF?style=for-the-badge)](https://airtable.com)
+[![Telegram](https://img.shields.io/badge/Telegram-Bot_API-26A5E4?style=for-the-badge)](https://core.telegram.org/bots/api)
+[![ngrok](https://img.shields.io/badge/ngrok-Webhooks-1F1E37?style=for-the-badge)](https://ngrok.com)
+
 
 ## 📌 Overview
 
